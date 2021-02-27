@@ -1,9 +1,9 @@
 <template>
   <div class="bg-white">
     <div class="relative">
-      <div class="max-w-7xl mx-auto h-screen">
+      <div class="max-w-7xl mx-auto h-auto">
         <div
-          class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 h-screen"
+          class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 lg:h-screen"
         >
           <svg
             class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
@@ -24,18 +24,14 @@
                 class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0"
               >
                 <div class="flex items-center justify-between w-full md:w-auto">
-                  <a href="#">
-                    <span class="sr-only">Workflow</span>
-                    <img class="h-8 w-auto sm:h-10" src="~/assets/logo1.png" />
-                  </a>
                   <div class="-mr-2 flex items-center md:hidden">
                     <button
                       type="button"
-                      class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-pink-500"
+                      class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                       aria-expanded="false"
+                      @click="toggle()"
                     >
                       <span class="sr-only">Open main menu</span>
-                      <!-- Heroicon name: outline/menu -->
                       <svg
                         class="h-6 w-6"
                         xmlns="http://www.w3.org/2000/svg"
@@ -56,134 +52,117 @@
                 </div>
               </div>
               <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-                <a
-                  href="#"
+                <NuxtLink
+                  to="/blog"
                   class="font-medium text-gray-500 hover:text-gray-900"
-                  >Product</a
+                  >Ürünler</NuxtLink
                 >
 
-                <a
-                  href="#"
+                <NuxtLink
+                  to="/blog"
                   class="font-medium text-gray-500 hover:text-gray-900"
-                  >Features</a
+                  >Ücretlendirme</NuxtLink
                 >
 
-                <a
-                  href="#"
+                <NuxtLink
+                  to="/blog"
                   class="font-medium text-gray-500 hover:text-gray-900"
-                  >Marketplace</a
+                  >Mentorlarımız</NuxtLink
                 >
 
-                <a
-                  href="#"
+                <NuxtLink
+                  to="/blog"
                   class="font-medium text-gray-500 hover:text-gray-900"
-                  >Company</a
+                  >Biz Kimiz?</NuxtLink
                 >
 
-                <a
-                  href="#"
-                  class="font-medium text-pink-600 hover:text-pink-500"
-                  >Log in</a
+                <NuxtLink
+                  to="/blog"
+                  class="font-medium text-pink-600 hover:text-accent"
+                  >Üye Ol</NuxtLink
                 >
               </div>
             </nav>
           </div>
 
-          <!--
-        Mobile menu, show/hide based on menu open state.
-
-        Entering: "duration-150 ease-out"
-          From: "opacity-0 scale-95"
-          To: "opacity-100 scale-100"
-        Leaving: "duration-100 ease-in"
-          From: "opacity-100 scale-100"
-          To: "opacity-0 scale-95"
-      -->
           <div
-            class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+            :class="
+              mobileMenu ? 'max-h-full' : 'max-h-0 transform -translate-y-full'
+            "
+            class="absolute top-0 inset-x-0 p-2 origin-top-right md:hidden transition duration-300"
           >
             <div
               class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden"
             >
               <div class="px-5 pt-4 flex items-center justify-between">
-                <div>
-                  <img
-                    class="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-pink-600.svg"
-                    alt=""
-                  />
-                </div>
-                <div class="-mr-2">
-                  <button
-                    type="button"
-                    class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-pink-500"
+                <button
+                  type="button"
+                  class="bg-white ml-auto rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500"
+                  @click="toggle()"
+                >
+                  <span class="sr-only">Close main menu</span>
+                  <svg
+                    class="h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
                   >
-                    <span class="sr-only">Close main menu</span>
-                    <!-- Heroicon name: outline/x -->
-                    <svg
-                      class="h-6 w-6"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
-                </div>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
               </div>
               <div class="px-2 pt-2 pb-3 space-y-1">
-                <a
-                  href="#"
+                <NuxtLink
+                  to="/"
                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                  >Product</a
+                  >Ürünler</NuxtLink
                 >
 
-                <a
-                  href="#"
+                <NuxtLink
+                  to="/"
                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                  >Features</a
+                  >Ücretlendirme</NuxtLink
                 >
 
-                <a
-                  href="#"
+                <NuxtLink
+                  to="/"
                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                  >Marketplace</a
+                  >Mentorlarımız</NuxtLink
                 >
 
-                <a
-                  href="#"
+                <NuxtLink
+                  to="/"
                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                  >Company</a
+                  >Biz Kimiz?</NuxtLink
                 >
+                <NuxtLink
+                  to="/blog"
+                  class="block px-3 py-2 text-base font-medium text-accent bg-gray-50 hover:bg-gray-100"
+                >
+                  Üye Ol
+                </NuxtLink>
               </div>
-              <a
-                href="#"
-                class="block w-full px-5 py-3 text-center font-medium text-accent bg-gray-50 hover:bg-gray-100"
-              >
-                Log in
-              </a>
             </div>
           </div>
 
           <main
-            class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-20 lg:mt-30 lg:px-8 xl:mt-40"
+            class="mx-auto max-w-7xl p-4 sm:mt-12 sm:px-6 md:mt-20 lg:mt-30 lg:px-8 xl:mt-40"
           >
             <div class="sm:text-center lg:text-left">
               <h1
                 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl md:text-5xl"
               >
-                <span class="block xl:inline"
+                <span class="block"
                   >Bio
                   <span class="text-pink-500">Hub</span>
                 </span>
-                <br />
                 <span class="block xl:inline"> Share Your Lab </span>
               </h1>
               <p
@@ -227,8 +206,9 @@
       </div>
     </div>
 
-    <!-- This example requires Tailwind CSS v2.0+ -->
-    <div class="py-12 bg-white mt-32 flex items-center">
+    <div
+      class="py-12 bg-white mt-12 flex items-center justify-center mx-auto container"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="lg:text-center">
           <h2
@@ -257,7 +237,6 @@
                 <div
                   class="flex items-center justify-center h-12 w-12 rounded-md bg-pink-500 text-white"
                 >
-                  <!-- Heroicon name: outline/globe-alt -->
                   <svg
                     class="h-6 w-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -400,7 +379,18 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  data() {
+    return {
+      mobileMenu: false,
+    }
+  },
+  methods: {
+    toggle() {
+      this.mobileMenu = !this.mobileMenu
+    },
+  },
+})
 </script>
 
 <style></style>
