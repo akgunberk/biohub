@@ -78,7 +78,7 @@
 
                 <NuxtLink
                   to="/blog"
-                  class="font-medium text-pink-600 hover:text-accent"
+                  class="font-medium text-indigo-600 hover:text-accent"
                   >Üye Ol</NuxtLink
                 >
               </div>
@@ -161,7 +161,7 @@
               >
                 <span class="block"
                   >Bio
-                  <span class="text-pink-500">Hub</span>
+                  <span class="text-indigo-500">Hub</span>
                 </span>
                 <span class="block xl:inline"> Share Your Lab </span>
               </h1>
@@ -179,7 +179,7 @@
                 <div class="rounded-md shadow">
                   <a
                     href="#"
-                    class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 md:py-4 md:text-lg md:px-10"
+                    class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
                   >
                     Daha Fazlasi
                   </a>
@@ -187,7 +187,7 @@
                 <div class="mt-3 sm:mt-0 sm:ml-3">
                   <a
                     href="#"
-                    class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-pink-700 bg-pink-100 hover:bg-pink-200 md:py-4 md:text-lg md:px-10"
+                    class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
                   >
                     Live demo
                   </a>
@@ -212,10 +212,11 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="lg:text-center">
           <h2
-            class="text-base text-pink-600 font-semibold tracking-wide uppercase"
+            class="text-base text-indigo-600 font-semibold tracking-wide uppercase"
           >
             Nasil Calisir?
           </h2>
+
           <p
             class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
           >
@@ -230,12 +231,12 @@
 
         <div class="mt-10">
           <dl
-            class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10"
+            class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 sm:gap-x-12 md:gap-y-10 items-center"
           >
-            <div class="flex">
+            <div class="flex md:w-5/6">
               <div class="flex-shrink-0">
                 <div
-                  class="flex items-center justify-center h-12 w-12 rounded-md bg-pink-500 text-white"
+                  class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"
                 >
                   <svg
                     class="h-6 w-6"
@@ -256,7 +257,8 @@
               </div>
               <div class="ml-4">
                 <dt class="text-lg leading-6 font-medium text-gray-900">
-                  İstediğin makineler cok mu pahali?
+                  Büyüyen sirketinin ihtiyaclarini karsilamakta zorlaniyor
+                  musun?
                 </dt>
                 <dd class="mt-2 text-base text-gray-500">
                   Uzulme! BioHub'da ihtiyacin olan makinelere sahip endüstrinin
@@ -265,10 +267,12 @@
               </div>
             </div>
 
-            <div class="flex">
+            <div v-html="growthLogo" class="w-auto"></div>
+
+            <div class="flex md:w-5/6">
               <div class="flex-shrink-0">
                 <div
-                  class="flex items-center justify-center h-12 w-12 rounded-md bg-pink-500 text-white"
+                  class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"
                 >
                   <!-- Heroicon name: outline/scale -->
                   <svg
@@ -301,10 +305,12 @@
               </div>
             </div>
 
-            <div class="flex">
+            <div v-html="bioLogo" class="w-auto"></div>
+
+            <div class="flex md:w-5/6">
               <div class="flex-shrink-0">
                 <div
-                  class="flex items-center justify-center h-12 w-12 rounded-md bg-pink-500 text-white"
+                  class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"
                 >
                   <!-- Heroicon name: outline/lightning-bolt -->
                   <svg
@@ -335,10 +341,12 @@
               </div>
             </div>
 
-            <div class="flex">
+            <div v-html="dataLogo" class="fill text-indigo-500"></div>
+
+            <div class="flex md:w-5/6">
               <div class="flex-shrink-0">
                 <div
-                  class="flex items-center justify-center h-12 w-12 rounded-md bg-pink-500 text-white"
+                  class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"
                 >
                   <!-- Heroicon name: outline/annotation -->
                   <svg
@@ -360,15 +368,18 @@
               </div>
               <div class="ml-4">
                 <dt class="text-lg leading-6 font-medium text-gray-900">
-                  Fikrini anlatacak bir mentor mu ariyorsun?
+                  Fikrini geliştirecek bir partner ya da destek alabilecegin bir
+                  mentor mu ariyorsun?
                 </dt>
                 <dd class="mt-2 text-base text-gray-500">
                   BioHub'da sadece ihtiyaclar degil fikirler de paylasilir!
-                  Mentorlerimiz ile gorusup onlardan fikir ve destek
-                  alabilirsin.
+                  İster BioHub'daki diğer müşterilerimiz ile ister mentorlerimiz
+                  ile gorusup onlardan fikir ve destek alabilirsin.
                 </dd>
               </div>
             </div>
+
+            <div v-html="teamworkLogo" class="w-auto"></div>
           </dl>
         </div>
       </div>
@@ -376,13 +387,27 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
+import cityLogo from '~/assets/city.svg?raw'
+import dataLogo from '~/assets/data.svg?raw'
+import bioLogo from '~/assets/bio.svg?raw'
+import growthLogo from '~/assets/growth.svg?raw'
+import scienceLogo from '~/assets/science.svg?raw'
+import partnerLogo from '~/assets/partner.svg?raw'
+import teamworkLogo from '~/assets/teamwork.svg?raw'
 
 export default Vue.extend({
   data() {
     return {
       mobileMenu: false,
+      bioLogo,
+      cityLogo,
+      dataLogo,
+      growthLogo,
+      partnerLogo,
+      scienceLogo,
+      teamworkLogo,
     }
   },
   methods: {
