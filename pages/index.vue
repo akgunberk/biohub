@@ -231,7 +231,7 @@
 
         <div class="mt-10">
           <dl
-            class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 sm:gap-x-12 md:gap-y-10 items-center"
+            class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 sm:gap-x-12 md:gap-y-20 items-center"
           >
             <div class="flex md:w-5/6">
               <div class="flex-shrink-0">
@@ -267,7 +267,9 @@
               </div>
             </div>
 
-            <div v-html="growthLogo" class="w-auto"></div>
+            <div class="max-h-48">
+              <div v-html="growthLogo" class="bg-rose-500"></div>
+            </div>
 
             <div class="flex md:w-5/6">
               <div class="flex-shrink-0">
